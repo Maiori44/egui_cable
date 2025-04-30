@@ -10,7 +10,7 @@ fn main() {
     eframe::run_native(
         "My egui App",
         native_options,
-        Box::new(|_| Box::new(MyEguiApp::default())),
+        Box::new(|_| Ok(Box::new(MyEguiApp::default()))),
     )
     .expect("Failed to start native application");
 }

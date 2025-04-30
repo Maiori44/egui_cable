@@ -11,11 +11,11 @@ fn main() {
         "My egui App",
         native_options,
         Box::new(|_| {
-            Box::new(MyEguiApp {
+            Ok(Box::new(MyEguiApp {
                 name: "".into(),
                 ports: vec![],
                 cables: vec![],
-            })
+            }))
         }),
     )
     .expect("Failed to start native application");

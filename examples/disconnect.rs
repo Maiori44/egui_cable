@@ -10,9 +10,9 @@ fn main() {
         "My egui App",
         native_options,
         Box::new(|_| {
-            Box::new(MyEguiApp {
+            Ok(Box::new(MyEguiApp {
                 connected: vec![(0, Some(0), Some(1))],
-            })
+            }))
         }),
     )
     .expect("Failed to start native application");
