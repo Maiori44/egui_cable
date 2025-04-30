@@ -2,14 +2,13 @@ use eframe::egui;
 use egui_cable::prelude::*;
 
 fn main() {
-    let native_options = eframe::NativeOptions {
-        default_theme: eframe::Theme::Light,
-        ..Default::default()
-    };
+    let native_options = eframe::NativeOptions::default();
+
     eframe::run_native(
         "My egui App",
         native_options,
-        Box::new(|_| {
+        Box::new(|ctx| {
+            ctx.egui_ctx.set_theme(egui::Theme::Light);
             Ok(Box::new(MyEguiApp {
                 connected: vec![(0, Some(0), Some(1))],
             }))

@@ -65,14 +65,15 @@ impl egui::Widget for CustomControl {
 }
 
 fn main() {
-    let native_options = eframe::NativeOptions {
-        default_theme: eframe::Theme::Light,
-        ..Default::default()
-    };
+    let native_options = eframe::NativeOptions::default();
+
     eframe::run_native(
         "My egui App",
         native_options,
-        Box::new(|_| Ok(Box::new(MyEguiApp::default()))),
+        Box::new(|ctx| {
+            ctx.egui_ctx.set_theme(egui::Theme::Light);
+            Ok(Box::new(MyEguiApp::default()))
+        }),
     )
     .expect("Failed to start native platform");
 }
