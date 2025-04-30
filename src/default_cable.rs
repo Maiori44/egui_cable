@@ -73,7 +73,7 @@ impl Widget for DefaultControl {
                 3.0,
                 visuals.bg_fill,
                 visuals.fg_stroke,
-                // egui::StrokeKind::Inside,
+                egui::StrokeKind::Inside,
             );
         }
         response
