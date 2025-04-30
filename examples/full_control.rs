@@ -3,8 +3,10 @@ use egui::Pos2;
 use egui_cable::prelude::*;
 
 fn main() {
-    let mut native_options = eframe::NativeOptions::default();
-    native_options.default_theme = eframe::Theme::Light;
+    let native_options = eframe::NativeOptions {
+        default_theme: eframe::Theme::Light,
+        ..Default::default()
+    };
     eframe::run_native(
         "My egui App",
         native_options,

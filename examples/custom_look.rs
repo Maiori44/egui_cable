@@ -65,8 +65,10 @@ impl egui::Widget for CustomControl {
 }
 
 fn main() {
-    let mut native_options = eframe::NativeOptions::default();
-    native_options.default_theme = eframe::Theme::Light;
+    let native_options = eframe::NativeOptions {
+        default_theme: eframe::Theme::Light,
+        ..Default::default()
+    };
     eframe::run_native(
         "My egui App",
         native_options,
