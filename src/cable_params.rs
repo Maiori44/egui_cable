@@ -6,6 +6,7 @@ use epaint::QuadraticBezierShape;
 use crate::cable_control::CableControl;
 
 #[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(serde::Deserialize, serde::Serialize))]
 pub struct CableParams {
     pub active: bool,
     pub line_hovered: bool,

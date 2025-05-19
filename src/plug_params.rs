@@ -3,6 +3,7 @@ use std::sync::Arc;
 use egui::{Id, Vec2};
 
 #[derive(Clone)]
+#[cfg_attr(feature = "serde", derive(serde::Deserialize, serde::Serialize))]
 pub struct PlugParams {
     pub vector: Option<Vec2>,
     pub active: bool,

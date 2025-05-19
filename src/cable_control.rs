@@ -3,9 +3,11 @@ use egui::{Order, Pos2, Widget};
 use crate::{cable::CableId, custom_widget::CustomWidget, state::State};
 
 #[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(serde::Deserialize, serde::Serialize))]
 pub struct CableControl {
     pub(crate) id: CableId,
     pub(crate) pos: Pos2,
+    #[cfg_attr(feature = "serde", serde(skip))]
     pub(crate) widget: CustomWidget,
 }
 

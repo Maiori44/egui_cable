@@ -3,6 +3,7 @@ use std::sync::Arc;
 use egui::Id;
 
 #[derive(Clone)]
+#[cfg_attr(feature = "serde", derive(serde::Deserialize, serde::Serialize))]
 pub struct PortParams {
     pub hovered: bool,
 }

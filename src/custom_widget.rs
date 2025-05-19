@@ -3,6 +3,7 @@ use std::fmt::Debug;
 
 use egui::Widget;
 
+// TODO: serialize this
 pub struct CustomWidget {
     widget: Box<dyn Any + Send + Sync + 'static>,
     debug: fn(&dyn Any) -> &dyn Debug,
@@ -41,5 +42,11 @@ impl<T: Widget + Debug + Send + Sync + 'static> From<T> for CustomWidget {
             debug: debug::<T>,
             ui: ui::<T>,
         }
+    }
+}
+
+impl Default for CustomWidget {
+    fn default() -> Self {
+        crate::default_cable::DefaultCable.into()
     }
 }

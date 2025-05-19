@@ -13,8 +13,12 @@ edition = "2021"
 [dependencies]
 egui = "0.31"
 epaint = "0.31"
+serde = { version = "1", optional = true, features = ["derive"] }
 # TODO: Leverage egui_hooks for much simpler code
 # egui_hooks = "0.8"
 
 [dev-dependencies]
 eframe = "0.31"
+
+[features]
+serde = ["dep:serde", "egui/serde"]
